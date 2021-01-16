@@ -1,7 +1,6 @@
-package io.voidengine.api.Search;
+package io.voidengine.api.search;
 
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 @Service
 public class SearchService {
 
-   SearchRepository searchRepository;
+   private SearchRepository searchRepository;
 
     public SearchService(SearchRepository repo){
         searchRepository = repo;

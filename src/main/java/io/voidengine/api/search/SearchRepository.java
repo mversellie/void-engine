@@ -1,9 +1,6 @@
-package io.voidengine.api.Search;
+package io.voidengine.api.search;
 
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.solr.core.SolrTemplate;
-import org.springframework.data.solr.repository.Boost;
 import org.springframework.data.solr.repository.Query;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 import org.springframework.stereotype.Repository;
