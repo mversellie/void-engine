@@ -22,16 +22,6 @@ public class ApiApplication {
 		SpringApplication.run(ApiApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/search").allowedOrigins("*");
-			}
-		};
-	}
-
 	// Let's configure additional connector to enable support for both HTTP and HTTPS
 	@Bean
 	public ServletWebServerFactory servletContainer() {
