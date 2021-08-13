@@ -15,4 +15,6 @@ public class SearchResultDocument {
     private String title;
     @Indexed(name = "description", type = "string")
     private String description;
+    @Indexed(name = "content", type="text_general")
+    private String content;
 }
