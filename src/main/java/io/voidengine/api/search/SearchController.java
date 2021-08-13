@@ -18,7 +18,9 @@ public class SearchController {
     }
 
     @GetMapping("/search")
-    public List<SearchResultDocument> search(@RequestParam String query){
-        return searchService.search(query);
+    public SearchResponse search(@RequestParam String query){
+        System.out.println(query);
+        List<SearchResultDocument> results = searchService.search(query);
+        return SearchResponse.builder().results(results).resultCount(results.size()).build();
     }
 }

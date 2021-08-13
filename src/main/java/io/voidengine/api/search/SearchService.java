@@ -15,6 +15,8 @@ public class SearchService {
     }
 
     public List<SearchResultDocument> search(String query){
-        return searchRepository.searchUrlTitleKeywordsDescriptionForWords(query,PageRequest.of(0, 10));
+        var ret = searchRepository.searchUrlTitleKeywordsDescriptionForWords(query,PageRequest.of(0, 10));
+        System.out.println("response: " + ret);
+        return ret;
     }
 }
