@@ -23,4 +23,6 @@ public class SearchResultDocument {
     private String url;
     @Indexed(name = "description", type = "string")
     private List<String> description;
+    @Indexed(name = "content", type="text_general")
+    private String content;
 }
