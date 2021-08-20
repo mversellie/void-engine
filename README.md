@@ -16,5 +16,5 @@ To run this, you will need
 
 ## Additional Links:
 
-- Vue frontend - [mversellie/void-engine-vue](https://github.com/mversellie/void-engine-vue)
+- Vue frontend repository - [mversellie/void-engine-vue](https://github.com/mversellie/void-engine-vue)
 - Current Deployment - [api.voidengine.io](http://api.voidengine.io)
