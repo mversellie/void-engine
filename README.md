@@ -12,9 +12,8 @@ To run this, you will need
 - Data from a Nutch crawl(the defaults for 2.3 were used while crawling).  
 - A Solr instance running 8.x loaded with your Nutch data.  You should also configure it with basic security.
 - JDK 11
-- An SSL certificate stored as a JKS(Optional)
 
 ## Additional Links:
 
-- Vue frontend repository - [mversellie/void-engine-vue](https://github.com/mversellie/void-engine-vue)
+- Vue frontend implementation - [mversellie/void-engine-vue](https://github.com/mversellie/void-engine-vue)
 - Current Deployment - [api.voidengine.io](http://api.voidengine.io)
