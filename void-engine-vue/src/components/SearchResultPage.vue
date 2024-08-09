@@ -18,7 +18,7 @@
                     <b-form-input v-model="searchQuery" v-on:keyup.enter="search"
                                   class="text-right search-field"></b-form-input>
                   </b-input-group>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/mversellie/void-engine-vue"> <img alt="" :src="gitHubImage" width="30px" height="30px"/></a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/mversellie/void-engine"> <img alt="" :src="gitHubImage" width="30px" height="30px"/></a>
                 </b-button-toolbar>
               </div>
             </b-col>
