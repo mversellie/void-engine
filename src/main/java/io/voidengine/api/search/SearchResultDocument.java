@@ -1,5 +1,7 @@
 package io.voidengine.api.search;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.Indexed;
@@ -8,6 +10,8 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 import java.util.List;
 
 @Data
+@Builder
+@AllArgsConstructor
 @SolrDocument(collection = "nutch")
 public class SearchResultDocument {
     @Id
