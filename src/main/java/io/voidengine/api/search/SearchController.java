@@ -1,24 +1,27 @@
 package io.voidengine.api.search;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController()
+@RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class SearchController {
 
-    private SearchService searchService;
+    private final SearchService searchService;
 
     public SearchController(SearchService searchService) {
         this.searchService = searchService;
     }
 
-    @GetMapping("/search")
-    public List<SearchResultDocument> search(@RequestParam String query){
-        return searchService.search(query);
+    @GetMapping()
+    public ResponseEntity<SearchResponse> search(@RequestParam String query){
+        Page<SearchResultDocument> searchResults = searchService.search(query,0,10);
+        SearchResponse res = SearchResponse.builder().results(searchResults.toList())
+                .resultsCount(searchResults.getTotalElements()).build();
+        return ResponseEntity.ok(res);
     }
 }

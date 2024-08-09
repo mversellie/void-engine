@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 
@@ -22,10 +22,16 @@ public class SearchControllerTest {
     @Mock
     private SearchService service;
 
+    @Mock
+    private Page mockPage;
+
     @Before
     public void setUp() throws Exception {
         controller = new SearchController(service);
-        Mockito.when(service.search(anyString())).thenReturn(new ArrayList<>());
+        Mockito.when(mockPage.getTotalPages()).thenReturn(0);
+        Mockito.when(mockPage.getTotalElements()).thenReturn(0L);
+        Mockito.when(mockPage.getContent()).thenReturn(new ArrayList());
+        Mockito.when(service.search(anyString(),0,1)).thenReturn(mockPage);
     }
 
     @Test

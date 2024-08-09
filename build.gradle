@@ -4,9 +4,10 @@ plugins {
 	id 'java'
 }
 
-group = 'io.voidengine'
-version = '1.0.1-SNAPSHOT'
+group = 'void-engine'
+version = 'v1'
 sourceCompatibility = '11'
+
 
 configurations {
 	compileOnly {
@@ -29,6 +30,33 @@ dependencies {
 	testImplementation 'org.mockito:mockito-core'
 }
 
+task purgeOldWeb(type:Delete){
+	delete 'src/main/resources/public'
+	followSymlinks = true
+}
+
+task copyWeb(type:Copy){
+	dependsOn("buildWeb")
+	from('void-engine-vue/dist')
+	into('src/main/resources/public')
+}
+
+task buildWeb(){
+	dependsOn("purgeOldWeb")
+	doLast {
+		exec {
+			environment("NODE_OPTIONS", "--openssl-legacy-provider")
+			workingDir('./void-engine-vue')
+			commandLine('npm','run','build')
+		}
+	}
+}
+
 test {
 	useJUnitPlatform()
 }
+
+build {
+	dependsOn("copyWeb")
+}
+

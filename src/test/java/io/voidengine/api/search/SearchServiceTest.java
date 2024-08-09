@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 
@@ -23,15 +24,23 @@ public class SearchServiceTest {
 
     private SearchService searchService;
 
+
+    @Mock
+    private Page mockPage;
+
     @Before
     public void setUp() throws Exception {
         searchService = new SearchService(mockRepo);
-        Mockito.when(mockRepo.searchUrlTitleKeywordsDescriptionForWords(Mockito.anyString(),any())).thenReturn(new ArrayList<>());
+
+        Mockito.when(mockPage.getTotalPages()).thenReturn(0);
+        Mockito.when(mockPage.getTotalElements()).thenReturn(0L);
+        Mockito.when(mockPage.getContent()).thenReturn(new ArrayList());
+        Mockito.when(mockRepo.searchUrlTitleKeywordsDescriptionForWords(Mockito.anyString(),any())).thenReturn(mockPage);
     }
 
     @Test
     public void search_ReturnsNotNUll(){
-        var actual = searchService.search("");
+        var actual = searchService.search("",0,0);
 
         assertThat(actual).isNotNull();
     }
