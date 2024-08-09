@@ -1,0 +1,81 @@
+{
+  "name": "void-engine-vue",
+  "version": "1.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.mjs$": "babel-jest"
+    },
+    "verbose": true,
+    "moduleNameMapper": {
+      "^@[/](.+)": "<rootDir>/src/$1"
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "vue",
+      "mjs"
+    ]
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "@vue/cli": "^4.5.13",
+    "axios": "^0.21.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.21.1",
+    "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
+    "portal-vue": "^2.1.7",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "vue-jest": "^3.0.7",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@testing-library/vue": "^5.6.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11",
+    "jest": "^26.6.3",
+    "@vue/babel-preset-app": "^4.5.9",
+    "vue-axios-cors": "^1.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
